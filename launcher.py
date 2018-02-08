@@ -21,7 +21,7 @@ class Launcher:
     self.y = y
     self.mag = 20			# initial magnitude
     self.angle = 45
-    self.width = 10
+    self.width = LAUNCHER_WIDTH
     self.color = BLACK
 
   def changeMagnitude(self,delta):		# adjust the magnitude within MIN/MAX bounds
@@ -40,9 +40,9 @@ class Launcher:
 
   def fire(self, rock):
     rock.v_x = self.mag*math.cos(self.angle*math.pi/180)
-    rock.y_y = self.mag*math.sin(self.angle*math.pi/180)
+    rock.v_y = -1.0*self.mag*math.sin(self.angle*math.pi/180)
 
-  def draw(self, surf):		# draw launcher on the given surface from polar coordinates
+  def draw_launcher(self, surf):		# draw launcher on the given surface from polar coordinates
     dx = self.mag*math.cos(self.angle*math.pi/180)
     dy = self.mag*math.sin(self.angle*math.pi/180)
 
